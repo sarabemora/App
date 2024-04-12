@@ -22,4 +22,5 @@ urlpatterns = [
     path('', views.index),
     path('', include('consultas.urls')),
     path('', include('inicio.urls')),
+    path('health-check/', views.healthCheck),
 ]
