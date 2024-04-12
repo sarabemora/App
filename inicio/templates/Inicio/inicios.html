@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <title>Login</title>
+</head>
+<body>
+    <br>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="/">
+                <div class="d-flex align-items-center">
+                    <img src="/static/media/logo.png" width="45" height="45" alt="">
+                    <br>
+                    <h1>Banco de los Alpes</h1>
+                </div>
+            </a>
+        </nav>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <br>
+                <h3>Iniciar sesión</h3>
+                <br>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="id">Id</label>
+                        <input type="text" class="form-control" id="id" name="id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <br>
+            <a href="/">
+                <button type="button" class="btn btn-secondary">Back</button>
+            </a>
+            </div>
+
+            <br>
+            {% if inicio %}
+            <div class="alert alert-success" role="alert">
+                Sesión iniciada correctamente. ¡Bienvenido!
+            </div>
+            {%else%}
+            <div class="alert alert-danger" role="alert">
+                Usuario o contraseña incorrectos. Vuelva a intentarlo.
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>
