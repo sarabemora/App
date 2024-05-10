@@ -143,7 +143,7 @@ STATICFILES_DIRS = (
 
 LOGIN_URL = "/login/auth0" 
 LOGIN_REDIRECT_URL = "/" 
-LOGOUT_REDIRECT_URL = "https://dev-wz3by3ao12a56kzw.us.auth0.com/v2/logout?returnTo=http%3A%2F%2Fip_publica_instancia:8080" 
+LOGOUT_REDIRECT_URL = "https://dev-wz3by3ao12a56kzw.us.auth0.com/v2/logout?returnTo=http%3A%2F%2F104.198.209.186:8080" 
 
 SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes 
 SOCIAL_AUTH_AUTH0_DOMAIN = 'dev-wz3by3ao12a56kzw.us.auth0.com' 
