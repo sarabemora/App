@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'inicio',
-    'consultas'
+    'consultas',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,16 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 #DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+LOGIN_URL = "/login/auth0" 
+LOGIN_REDIRECT_URL = "/" 
+LOGOUT_REDIRECT_URL = "https://dev-wz3by3ao12a56kzw.us.auth0.com/v2/logout?returnTo=http%3A%2F%2Fip_publica_instancia:8080" 
+
+SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes 
+SOCIAL_AUTH_AUTH0_DOMAIN = 'dev-wz3by3ao12a56kzw.us.auth0.com' 
+SOCIAL_AUTH_AUTH0_KEY = '22wPS1uqh8mFLxyttZjMUoBSBsZksi78' 
+SOCIAL_AUTH_AUTH0_SECRET = 'n1UqCZKcHaNFPvJ-EJpDr0arxg2jzWLeQe-Rq25kHKNIefEqxBJZfYa3bhbXTxnJ' 
+
+SOCIAL_AUTH_AUTH0_SCOPE = [ 'openid', 'profile', 'email', 'role', ] 
+AUTHENTICATION_BACKENDS = { 'monitoring.auth0backend.Auth0', 'django.contrib.auth.backends.ModelBackend', }
