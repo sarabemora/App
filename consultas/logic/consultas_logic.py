@@ -13,9 +13,9 @@ def create_consulta(con):
     consulta.save()
     return consulta
 
-def update_consulta(id, new_id):
+def update_consulta(id, new_telefono):
     consulta = get_consulta(id)
-    consulta.cedula = new_id['cedula']
+    consulta.telefono = new_telefono
     consulta.save()
     return consulta
 

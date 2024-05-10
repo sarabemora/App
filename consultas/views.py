@@ -12,6 +12,7 @@ from app.auth0backend import getRole
 @csrf_exempt
 def consultas_view(request):
     role = getRole(request)
+    consulta = None
     if role == "Admin":
         if request.method == 'GET':
             form = ConsultasForm()
@@ -19,8 +20,11 @@ def consultas_view(request):
     
         if request.method == 'POST':
             cedula = request.POST.get('id')
-            consulta = cl.get_consulta_by_cedula(cedula)
+            telefono = request.POST.get('telefono')
+            if cedula:
+                consulta = cl.get_consulta_by_cedula(cedula)
+                if telefono:
+                    consulta = cl.update_consulta(cedula, telefono)
             return render(request, 'Consulta/consultas.html', {'consulta': consulta})
     else:
         return HttpResponse("No tienes permisos para ver esta página")
-
