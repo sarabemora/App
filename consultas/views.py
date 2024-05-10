@@ -21,5 +21,6 @@ def consultas_view(request):
             cedula = request.POST.get('id')
             consulta = cl.get_consulta_by_cedula(cedula)
             return render(request, 'Consulta/consultas.html', {'consulta': consulta})
- 
+    else:
+        return HttpResponse("No tienes permisos para ver esta página")
 
